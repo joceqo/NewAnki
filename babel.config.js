@@ -3,14 +3,9 @@ module.exports = function (api) {
   return {
     presets: ['babel-preset-expo'],
     plugins: [
-      [
-        '@tamagui/babel-plugin',
-        {
-          components: ['tamagui'],
-          config: './tamagui.config.ts',
-          logTimings: true,
-        },
-      ],
+      // Tamagui babel plugin disabled due to ESM/CJS compatibility issues
+      // with Node.js 22+. The app works without it, just without build-time
+      // style extraction optimization.
       'react-native-reanimated/plugin',
     ],
   };
