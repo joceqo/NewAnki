@@ -18,6 +18,27 @@ import {
 } from './schedule';
 import { ReviewGrade, CardState } from '../models/ReviewRecord';
 
+/**
+ * Helper function to simulate multiple reviews with the same grade
+ * @param scheduler - The scheduler instance to use
+ * @param initialState - The initial scheduling state
+ * @param grade - The review grade to apply for each review
+ * @param times - Number of times to perform the review
+ * @returns The final scheduling state after all reviews
+ */
+function reviewMultipleTimes(
+  scheduler: FSRSScheduler,
+  initialState: SchedulingState,
+  grade: ReviewGrade,
+  times: number
+): SchedulingState {
+  let state = initialState;
+  for (let i = 0; i < times; i++) {
+    state = scheduler.scheduleNextReview(state, grade);
+  }
+  return state;
+}
+
 describe('FSRSScheduler', () => {
   let scheduler: FSRSScheduler;
 
@@ -100,8 +121,8 @@ describe('FSRSScheduler', () => {
       const easyState = scheduler.scheduleNewCard();
 
       // Review multiple times
-      const goodAfter = this.reviewMultipleTimes(goodState, ReviewGrade.GOOD, 3);
-      const easyAfter = this.reviewMultipleTimes(easyState, ReviewGrade.EASY, 3);
+      const goodAfter = reviewMultipleTimes(scheduler, goodState, ReviewGrade.GOOD, 3);
+      const easyAfter = reviewMultipleTimes(scheduler, easyState, ReviewGrade.EASY, 3);
 
       // EASY should have longer interval
       expect(easyAfter.intervalDays).toBeGreaterThan(goodAfter.intervalDays);
@@ -194,19 +215,6 @@ describe('FSRSScheduler', () => {
       expect(nextState.intervalDays).toBe(1);
     });
   });
-
-  // Helper method
-  reviewMultipleTimes(
-    initialState: SchedulingState,
-    grade: ReviewGrade,
-    times: number
-  ): SchedulingState {
-    let state = initialState;
-    for (let i = 0; i < times; i++) {
-      state = scheduler.scheduleNextReview(state, grade);
-    }
-    return state;
-  }
 });
 
 describe('SM2Scheduler', () => {

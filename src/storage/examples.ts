@@ -275,7 +275,6 @@ function generateInsights(stats: ReviewStats) {
 export async function reviewMultipleCards(
   reviews: { cardId: string; grade: ReviewGrade; durationMs?: number }[]
 ) {
-  const scheduler = new FSRSScheduler();
   const results = [];
 
   for (const review of reviews) {
@@ -500,35 +499,3 @@ export class StudySessionTracker {
 // ============================================================================
 // Usage examples
 // ============================================================================
-
-async function exampleUsageFlow() {
-  // Example 1: Review a single card
-  const result = await reviewCard('card-123', ReviewGrade.GOOD, 3500);
-  console.log('Review result:', result);
-
-  // Example 2: Start a study session
-  const session = await startStudySession('deck-456', 20);
-  console.log('Study session:', session);
-
-  // Example 3: Get preview before reviewing
-  const preview = await getReviewPreview('card-123');
-  console.log('Preview:', preview);
-
-  // Example 4: Track session progress
-  const tracker = new StudySessionTracker();
-  tracker.recordReview(ReviewGrade.GOOD);
-  tracker.recordReview(ReviewGrade.EASY);
-  tracker.recordReview(ReviewGrade.AGAIN);
-  console.log('Session progress:', tracker.getProgress());
-
-  // Example 5: Compare algorithms
-  const comparison = await compareAlgorithms('card-123', ReviewGrade.GOOD);
-  console.log('FSRS vs SM-2:', comparison);
-
-  // Example 6: Get statistics
-  const stats = await getDeckStatistics('deck-456');
-  console.log('Deck statistics:', stats);
-}
-
-// Uncomment to run examples:
-// exampleUsageFlow();
