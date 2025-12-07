@@ -18,7 +18,14 @@ import {
 } from './schedule';
 import { ReviewGrade, CardState } from '../models/ReviewRecord';
 
-// Helper function
+/**
+ * Helper function to simulate multiple reviews with the same grade
+ * @param scheduler - The scheduler instance to use
+ * @param initialState - The initial scheduling state
+ * @param grade - The review grade to apply for each review
+ * @param times - Number of times to perform the review
+ * @returns The final scheduling state after all reviews
+ */
 function reviewMultipleTimes(
   scheduler: FSRSScheduler,
   initialState: SchedulingState,
