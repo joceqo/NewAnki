@@ -87,7 +87,7 @@ export interface UpdateCardInput {
 }
 
 export type CardWithReview = Card & {
-  next_due_date?: number;
-  interval_days?: number;
-  is_due?: boolean;
+  next_due_date: number | null;
+  interval_days: number | null;
+  is_due: boolean;
 };

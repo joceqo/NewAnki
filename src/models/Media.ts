@@ -16,9 +16,9 @@ export interface Media {
   alt_text: string | null; // Accessibility description
   mime_type: string; // e.g., 'image/png', 'audio/mp3'
   file_size_bytes: number; // File size for storage tracking
-  width?: number | null; // For images/videos
-  height?: number | null; // For images/videos
-  duration_ms?: number | null; // For audio/video
+  width: number | null; // For images/videos
+  height: number | null; // For images/videos
+  duration_ms: number | null; // For audio/video
   checksum: string; // SHA-256 hash for deduplication
   created_at: number; // Unix timestamp (ms)
   modified_at: number; // Unix timestamp (ms)
@@ -28,18 +28,18 @@ export interface Media {
 export interface CreateMediaInput {
   type: MediaType;
   file_path: string;
-  alt_text?: string | null;
+  alt_text?: string;
   mime_type: string;
   file_size_bytes: number;
-  width?: number | null;
-  height?: number | null;
-  duration_ms?: number | null;
+  width?: number;
+  height?: number;
+  duration_ms?: number;
   checksum: string;
 }
 
 export interface UpdateMediaInput {
   file_path?: string;
-  alt_text?: string | null;
+  alt_text?: string;
   mime_type?: string;
 }
 

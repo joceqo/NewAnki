@@ -16,14 +16,14 @@ export interface Deck {
 
 export interface CreateDeckInput {
   title: string;
-  description?: string | null;
+  description?: string;
   tags?: string[];
   is_public?: boolean;
 }
 
 export interface UpdateDeckInput {
   title?: string;
-  description?: string | null;
+  description?: string;
   tags?: string[];
   is_public?: boolean;
 }
