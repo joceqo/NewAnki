@@ -8,7 +8,10 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",
@@ -50,10 +53,13 @@
   },
   "devDependencies": {
     "@types/react": "~19.1.0",
+    "@vitest/ui": "^4.0.15",
     "drizzle-kit": "^0.31.8",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~10.0.0",
-    "typescript": "~5.9.2"
+    "happy-dom": "^20.0.11",
+    "typescript": "~5.9.2",
+    "vitest": "^4.0.15"
   },
   "private": true
 }
