@@ -1,5 +1,5 @@
 // Quick test to verify FSRS scheduler works
-const { FSRSScheduler, SM2Scheduler } = require('./src/storage/schedule.ts');
+const { FSRSScheduler, SM2Scheduler } = require('./src/storage/schedule');
 
 async function testScheduler() {
   console.log('🧪 Testing FSRS Scheduler Implementation\n');
