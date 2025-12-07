@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",
+    "@op-engineering/op-sqlite": "^15.1.6",
     "@react-navigation/bottom-tabs": "^7.4.0",
     "@react-navigation/elements": "^2.6.3",
     "@react-navigation/native": "^7.1.8",
@@ -20,6 +21,7 @@
     "@tamagui/babel-plugin": "^1.138.6",
     "@tamagui/config": "^1.138.6",
     "date-fns": "^4.1.0",
+    "drizzle-orm": "^0.45.0",
     "expo": "~54.0.27",
     "expo-constants": "~18.0.11",
     "expo-font": "~14.0.10",
@@ -48,6 +50,7 @@
   },
   "devDependencies": {
     "@types/react": "~19.1.0",
+    "drizzle-kit": "^0.31.8",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~10.0.0",
     "typescript": "~5.9.2"
